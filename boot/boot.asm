@@ -41,3 +41,7 @@ StartBootMessage: db "Start boot" ;db=定义字节变量；dw=定义字变量（
 ;======== fill zero until whole sector
 times 510-($-$$) db 0       ;times=重复定义数据或指令 $=当前行的起始地址 $$=section的起始地址
 dw 0xaa55                   ;
+
+label_file_loaded:
+jmp BaseOfLoader:OffsetOfLoader ;段外跳转（指定目标的和偏移量）
+
